@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>Your Deals</h2>
+  <div class="row text-center">
+    {{#each deals as |deal|}}
+      <div class="col-md-3 text-center">
+        <div class="dealCol">
+          <h5>{{deal.subject}}</h5>
+          <img src="/images/deal.jpg" style="max-width:150px;max-height:200px;margin:auto;">
+          <form method="GET" action="/deals/{{deal.slug}}">
+            <button type="submit" class="btn btn-primary">Learn More</button>
+          </form>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

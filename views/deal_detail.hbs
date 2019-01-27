@@ -1,0 +1,54 @@
+<div class='jumbotron vertical-center'>
+<div class="container">
+  <div class="row">
+      <div class="col">
+        {{#if merchant}}
+          <h3>Merchant: {{merchant}}</h3>
+        {{/if}}
+      	<h3>Subject: {{deal.subject}}</h3>
+        {{#if deal.active}}
+        <h3>Deal Status: Active</h3>
+        {{else}}
+        <h3>Deal Status: Inactive</h3>
+        {{/if}}
+        <h3>Category: {{deal.category}}</h3>
+        <h3>Limit: {{deal.limit}} ({{deal.current_used}} already taken)</h3>
+        <h3>Location: {{deal.location}}</h3>
+        {{#if participants}}
+          <p>
+            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              Participants
+            </button>
+          </p>
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+              <ul>
+              {{#each participants as |participant|}}
+                <li>{{participant}}</li>
+              {{/each}}
+              </ul>
+            </div>
+          </div>
+        {{/if}}
+        <h3>Merchant comments: {{deal.comments}}</h3>
+        {{#if errMessage}}
+          <div class="alert alert-danger" role="alert">
+            You have already participated in this deal!
+          </div>
+        {{/if}}
+        {{#if dealLimit}}
+          <div class="alert alert-danger" role="alert">
+            Deal is inactive as the deal limit has been reached! 
+          </div>
+        {{/if}}
+        {{#if user}}
+        	{{#unless user.category}}
+          <form method='POST', action='/users/profile/{{deal.slug}}'>	
+        		<button type="submit" class="btn btn-primary">Take The Deal</button>
+          </form>
+        	{{/unless}}
+        {{/if}}
+      </div>
+  </div>
+</div>
+</div>

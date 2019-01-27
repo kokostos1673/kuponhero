@@ -1,0 +1,41 @@
+<div class='jumbotron'>
+  <div class='container'>
+    <div class="row">
+      <div class="col-sm-6 offset-sm-3">
+        <form method="POST" action="/merchants/deals/{{deal.slug}}" class="form-group">
+          <div class="form-group">
+            <label for="subject">Subject:</label>
+          <input type="text" name="subject" value="{{deal.subject}}" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="limit">Limit:</label>
+          <input type="text" name="limit" value="{{deal.limit}}" class="form-control" aria-describedby="limitExplained" required>
+          <small id="limitExplained" class="form-text text-muted">Maximum number of people who can participate in the deal</small>
+          </div>
+          <div class="form-group">
+            <label for="category">Category:</label>
+            <select class="custom-select form-control" id="inputGroupSelect01" name="category" required>
+              <option selected>{{deal.category}}</option>
+              <option value="Automotive">Automotive</option>
+              <option value="Beauty & Spas">Beauty & Spas</option>
+              <option value="Food & Drink">Food & Drink</option>
+              <option value="Health & Fitness">Health & Fitness</option>
+              <option value="Home Services">Home Services</option>
+              <option value="Meal Prep & Wine Delivery">Meal Prep & Wine Delivery</option>
+              <option value="Online Learning">Online Learning</option>
+              <option value="Other">Other</option>
+              <option value="Personal Services">Personal Services</option>
+              <option value="Personalized Items">Personalized Items</option>
+              <option value="Retail">Retail</option>
+              <option value="Things To Do">Things To Do</option>
+            </select>
+          </div>
+          <div>
+          <label for="comments">Comments:</label> 
+          <textarea name="comments" style="height:150px;" value="{{deal.comments}}" class="form-control"></textarea>
+          <button type="submit" class="btn btn-primary" style="margin-top:5px;">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

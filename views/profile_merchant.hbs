@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>Your Deals</h2>
+  <div class="row text-center">
+    {{#each deals as |deal|}}
+      <div class="col-md-3 text-center">
+        <div class="dealCol">
+          <h5>{{deal.subject}}</h5>
+          <img src="/images/deal.jpg" style="max-width:150px;max-height:200px;margin:auto;">
+          <form method="GET" action="/merchants/deals/{{deal.slug}}">
+            <button type="submit" class="btn btn-primary">Edit</button>
+          </form>
+          <form method="GET" action="/merchants/deals/delete/{{deal.slug}}">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
